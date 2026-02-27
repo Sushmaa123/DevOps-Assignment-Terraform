@@ -1,8 +1,11 @@
 create s3 bucket
 
 aws s3api create-bucket \\
+
   --bucket my-terraform-state-bucket-12345 \\
+  
   --region ap-south-1 \\
+  
   --create-bucket-configuration LocationConstraint=ap-south-1
 
 
