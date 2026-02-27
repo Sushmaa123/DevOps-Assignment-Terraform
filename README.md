@@ -1,4 +1,4 @@
-create s3 bucket
+**create s3 bucket**
 
 aws s3api create-bucket \\
 
@@ -9,17 +9,24 @@ aws s3api create-bucket \\
   --create-bucket-configuration LocationConstraint=ap-south-1
 
 
-Enable versioning:
+**Enable versioning:**
 
-aws s3api put-bucket-versioning \
-  --bucket my-terraform-state-bucket-12345 \
+aws s3api put-bucket-versioning \\
+
+  --bucket my-terraform-state-bucket-12345 \\
+  
   --versioning-configuration Status=Enabled
 
-Create DynamoDB table (for locking):
+**Create DynamoDB table (for locking):**
 
-aws dynamodb create-table \
-  --table-name terraform-lock-table \
-  --attribute-definitions AttributeName=LockID,AttributeType=S \
-  --key-schema AttributeName=LockID,KeyType=HASH \
-  --billing-mode PAY_PER_REQUEST \
+aws dynamodb create-table \\
+
+  --table-name terraform-lock-table \\
+  
+  --attribute-definitions AttributeName=LockID,AttributeType=S \\
+  
+  --key-schema AttributeName=LockID,KeyType=HASH \\
+  
+  --billing-mode PAY_PER_REQUEST \\
+  
   --region ap-south-1
